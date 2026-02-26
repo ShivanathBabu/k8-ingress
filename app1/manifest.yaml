@@ -4,24 +4,24 @@ metadata:
   name: app1
   # deployement labels
   labels:
-    purpose: deployement-demo
+    purpose: Ingress
     project: roboshop
-    app: Ingress
+    app: app1
 spec:
   replicas: 1
   # this are the labels replica set to use create pod replicas, this should match the pod labels
   selector:
     matchLabels:
-      purpose: deployement-demo
+      purpose: Ingress
       project: roboshop
-      app: Ingress
+      app: app1
 # This is pod defination
   template:
     metadata:
       labels:
-        purpose: deployement-demo
+        purpose: Ingress
         project: roboshop
-        app: Ingress
+        app: app1
     spec:
       containers:
       - name: nginx
@@ -32,14 +32,14 @@ kind: Service
 metadata:
   name: app1
   labels:
-    purpose: deployement-demo
+    purpose: Ingress
     project: roboshop
-    app: Ingress
+    app: app1
 spec:
   selector:
-    purpose: deployement-demo
+    purpose: Ingress
     project: roboshop
-    app: Ingress
+    app: app1
   ports:
     - protocol: TCP
       port: 80

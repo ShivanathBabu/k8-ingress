@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: app2
   labels:
-    purpose: deployement-demo
+    purpose: Ingress
     project: roboshop
-    app: Ingress
+    app: app2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      purpose: deployement-demo
+      purpose: Ingress
       project: roboshop
-      app: Ingress
+      app: app2
   template:
     metadata:
       labels:
-        purpose: deployement-demo
+        purpose: Ingress
         project: roboshop
-        app: Ingress
+        app: app2
     spec:
       containers:
       - name: nginx
@@ -29,14 +29,14 @@ kind: Service
 metadata:
   name: app2
   labels:
-    purpose: deployement-demo
+    purpose: Ingress
     project: roboshop
-    app: Ingress
+    app: app2
 spec:
   selector:
-    purpose: deployement-demo
+    purpose: Ingress
     project: roboshop
-    app: Ingress
+    app: app2
   ports:
     - protocol: TCP
       port: 80
