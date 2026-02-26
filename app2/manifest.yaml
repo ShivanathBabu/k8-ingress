@@ -55,14 +55,14 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-  - host: "foo.bar.com"
+  - host: "app1.teshome.online"
     http:
       paths:
       - pathType: Prefix
-        path: "/bar"
+        path: "/"
         backend:
           service:
-            name: service1
+            name: app2
             port:
               number: 80
   
