@@ -47,7 +47,7 @@ metadata:
   name: ingress-wildcard-host
   annotations:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:139355608147:certificate/fd0e6495-eb81-492c-b014-96bfabb52dca
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:139355608147:certificate/be127313-e26a-4faa-abb5-e1263cd394e4
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/group.name: shivanathbabu

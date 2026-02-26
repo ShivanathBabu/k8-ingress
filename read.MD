@@ -4,7 +4,7 @@
 trust and authentication provider
 
 REGION_CODE=us-east-1
-CLUSTER_NAME=attractive-wardrobe-1771997725
+CLUSTER_NAME=beautiful-sheepdog-1772085247
 ACC_ID=139355608147
 ```
 eksctl utils associate-iam-oidc-provider \
