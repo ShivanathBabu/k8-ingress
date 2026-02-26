@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2
+  labels:
+    purpose: deployement-demo
+    project: roboshop
+    app: Ingress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      purpose: deployement-demo
+      project: roboshop
+      app: Ingress
+  template:
+    metadata:
+      purpose: deployement-demo
+      project: roboshop
+      app: Ingress
+    spec:
+      containers:
+      - name: nginx
+        image: shivanathbabu/app2:v1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app2
+  labels:
+    purpose: deployement-demo
+    project: roboshop
+    app: Ingress
+spec:
+  selector:
+    purpose: deployement-demo
+    project: roboshop
+    app: Ingress
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-wildcard-host
+  annotations:
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:139355608147:certificate/fd0e6495-eb81-492c-b014-96bfabb52dca
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: shivanathbabu
+spec:
+  ingressClassName: alb
+  rules:
+  - host: "foo.bar.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/bar"
+        backend:
+          service:
+            name: service1
+            port:
+              number: 80
+  
+
+
+  
