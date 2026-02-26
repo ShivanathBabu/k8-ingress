@@ -15,9 +15,10 @@ spec:
       app: Ingress
   template:
     metadata:
-      purpose: deployement-demo
-      project: roboshop
-      app: Ingress
+      labels:
+        purpose: deployement-demo
+        project: roboshop
+        app: Ingress
     spec:
       containers:
       - name: nginx
